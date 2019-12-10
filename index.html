@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissor!</title>
+</head>
+<body>
+  <script>
+     function computerPlay() {
+         function getRandom() {
+            return Math.floor(Math.random() * 3) + 1;
+         }
+         num = getRandom()
+         switch(num){
+         case 1: 
+         return "rock"
+         break;
+         case 2: 
+         return "paper"
+         break;
+         case 3:
+         return "scissors"
+         break;
+         }
+     }
+     function round(computerSelection, playerSelection) {
+         if (computerSelection == playerSelection) {
+             return "I's a tie!";
+         } else if (computerSelection == "rock") {
+             if (playerSelection == "paper") {
+                 return "You win! Paper beats Rock!"
+             } else {
+                 return "You lose! Rock beats Scissors!"
+             }
+         } else if (computerSelection == "paper") {
+             if (playerSelection == "rock") {
+                 return "You lose! Paper beats Rock!"
+             } else {
+                 return "You win! Scissors beat Paper!"
+             }
+         } else {
+             if (playerSelection == "rock") {
+                 return "You win! Rock beats Scissors"
+             } else {
+                 return "You lose! Scissors beat Paper!"
+             }
+         }
+     }
+
+     function game() {
+        let computerScore = 0
+         let playerScore = 0
+
+         let computerSelection = computerPlay();
+         let playerSelection = prompt("Rock, Paper or Scissors?")
+         playerSelection = playerSelection.toLowerCase()
+         result = round(computerSelection,playerSelection);
+         result = result.slice(0,7)
+         if (result == "You win") {
+             playerScore += 1;
+         } else if (result =="You los") {
+             computerScore +=1;
+         }
+
+     }
+  </script>
+</body>
+</html>
